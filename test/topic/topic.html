@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+	<title>专题页面</title>
+	<script src="http://cdn.rsscc.cn/guanggao/common/js/jquery.js"></script>
+  <link rel="icon" href="http://cdn.rsscc.cn/guanggao/mall/favicon.ico">
+	<link href="http://cdn.rsscc.cn/guanggao/common/css/global.css" rel="stylesheet" >
+	<link href="./topic.css" rel="stylesheet" >
+</head>
+<body>
+	<section class="topic-box">
+		<ul class="topic-bar">
+			<li class="topic-area">
+				<img src="http://cdn.rsscc.cn/guanggao/img/test/test-1027-1.png?v=1.0" class="topic-show-pic" alt="">
+				<div class="topic-area-desc">
+					<p class="goods-name">原来你是这样的旅行包</p>
+					<p class="goods-slogan">【打包梦境 向爱出发】</p>
+				</div>
+				<div class="mask"></div>
+				<div class="control-content">
+					<button class="move-up">上移</button>
+					<button class="move-down">下移</button>
+					<button class="move-top">置顶</button>
+					<button class="move-offline">下线</button>
+				</div>
+				<div class="status wait">待上线</div>
+			</li>
+			<li class="topic-area">
+				<img src="http://cdn.rsscc.cn/guanggao/img/test/test-1027-2.png?v=1.0" class="topic-show-pic" alt="">
+				<div class="topic-area-desc">
+					<p class="goods-name">麦步手表超长21天待机</p>
+					<p class="goods-slogan">【商旅神器推荐】</p>
+				</div>
+				<div class="mask"></div>
+				<div class="control-content">
+					<button class="move-up">上移</button>
+					<button class="move-down">下移</button>
+					<button class="move-top">置顶</button>
+					<button class="move-offline">下线</button>
+				</div>
+				<div class="status">上线</div>
+			</li>
+			<li class="topic-area">
+				<img src="http://cdn.rsscc.cn/guanggao/img/test/test-1027-3.png?v=1.0" class="topic-show-pic" alt="">
+				<div class="topic-area-desc">
+					<p class="goods-name">郊游必备 | 想坐就坐的神奇</p>
+					<p class="goods-slogan">【出游必备好物】</p>
+				</div>
+				<div class="mask"></div>
+				<div class="control-content">
+					<button class="move-up">上移</button>
+					<button class="move-down">下移</button>
+					<button class="move-top">置顶</button>
+					<button class="move-offline">下线</button>
+				</div>
+				<div class="status wait">待上线</div>
+			</li>
+			<li class="topic-area">
+				<img src="http://cdn.rsscc.cn/guanggao/img/test/test-1027-4.png?v=1.0" class="topic-show-pic" alt="">
+				<div class="topic-area-desc">
+					<p class="goods-name">全铝镁合金拉杆箱</p>
+					<p class="goods-slogan">【管家良心定制】</p>
+				</div>
+				<div class="mask"></div>
+				<div class="control-content">
+					<button class="move-up">上移</button>
+					<button class="move-down">下移</button>
+					<button class="move-top">置顶</button>
+					<button class="move-offline">下线</button>
+				</div>
+				<div class="status wait">待上线</div>
+			</li>
+			<li class="topic-area">
+				<img src="http://cdn.rsscc.cn/guanggao/img/test/test-1027-5.png?v=1.0" class="topic-show-pic" alt="">
+				<div class="topic-area-desc">
+					<p class="goods-name">体面癌没有它出不了门</p>
+					<p class="goods-slogan">【imblu旅行洗护套装】</p>
+				</div>
+				<div class="mask"></div>
+				<div class="control-content">
+					<button class="move-up">上移</button>
+					<button class="move-down">下移</button>
+					<button class="move-top">置顶</button>
+					<button class="move-offline">下线</button>
+				</div>
+				<div class="status">上线</div>
+			</li>
+		</ul>
+		<div class="click-area">点击配置</div>
+	</section>
+	<script>
+	$(function() {
+		$(".move-up").click(function() {
+			var moveTarget = $(this).parent().parent();
+			var preDom = $(this).parent().parent().prev();
+			var preDomHtml = preDom.html();
+			
+			if(preDomHtml === undefined) {
+				alert("已到顶！");
+			}else {
+				moveTarget.insertBefore(preDom);
+			}
+		});
+		$(".move-down").click(function() {
+			var moveTarget = $(this).parent().parent();
+			var nextDom = $(this).parent().parent().next();
+			var nextDomHtml = nextDom.html();
+
+			if(nextDomHtml === undefined) {
+				alert("已到底！");
+			}else {
+				moveTarget.insertAfter(nextDom);
+			}
+		});
+		$(".move-top").click(function() {
+			var oFa = $(".topic-bar");
+			var moveTarget = $(this).parent().parent();
+			var firstTarget = oFa.children(".topic-area").eq(0);
+			if(firstTarget.html() === moveTarget.html()) {
+				alert("此商品在最顶部");
+			}else {
+				moveTarget.insertBefore(firstTarget);
+			}
+		});
+	});
+	</script>
+</body>
+</html>
